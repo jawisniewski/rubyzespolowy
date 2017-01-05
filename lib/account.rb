@@ -13,10 +13,7 @@
     end
 
     def to_s
-      # account = 'Nazwisko :' << person.surname.to_s
-      # account << " imie : " << person.name.to_s << "\n"
-
-      account = 'Stan konta:' << @balance.to_s << "\n"
+      account = 'Stan konta: ' << @balance.to_s << "\n"
       account << 'Waluta konta: ' << @currency.to_s << "\n"
       account
     end
