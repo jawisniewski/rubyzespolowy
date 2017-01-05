@@ -2,10 +2,9 @@
 require_relative '../lib/menu.rb'
  require_relative '../lib/person.rb'
  require_relative '../lib/account.rb'
-#
  require_relative '../lib/bank.rb'
+
 class Run
-# @manager = Manager.new
   @menu = Menu.new
   @bank = Bank.new
   while true
@@ -33,11 +32,11 @@ class Run
       when '3'
         puts " Dodaj konto \n"
         puts "Podaj walute \n"
-        name = gets.chomp
+        currency = gets.chomp
         puts "Podaj pin\n"
         pin = gets.chomp
       pin =  Integer(pin)
-        @bank.add_account(name, 0, pin)
+        @bank.add_account(currency, 0, pin)
         puts " Dodano konto\n"
       when '4'
         puts "Zmień pin do konta \n"
@@ -59,8 +58,8 @@ class Run
       when '6'
         puts " Pokaz konta wedlug waluty\n"
         puts "Podaj typ waluty \n"
-        name = gets.chomp
-        puts @bank.find_name(name)
+        currency = gets.chomp
+        puts @bank.find_currency(currency)
       else
         puts "Zly wybor\n"
       end
@@ -107,8 +106,8 @@ class Run
       when '6'
         puts " Pokaz uzytkownikow wedlug waluty kont\n"
         puts "Podaj typ waluty \n"
-        name = gets.chomp
-        puts @bank.find_users_in_name(name)
+        currency = gets.chomp
+        puts @bank.find_users_in_currency(currency)
       else
         puts " Zly wybor\n"
       end
@@ -133,11 +132,11 @@ class Run
       pin = gets.chomp
       pin= Integer(pin)
       puts "Podaj walute\n"
-      name = gets.chomp
+      currency = gets.chomp
       puts "Podaj kwote"
       balance = gets.chomp
       balance = balance.to_f
-      @bank.add_money(id, name, balance, pin)
+      @bank.add_money(id, currency, balance, pin)
       puts " Wplacono pieniadze\n"
     when '5'
       puts "Wyplac pieniedze z konta\n"
@@ -163,4 +162,8 @@ class Run
       puts 'Podales zly znak'
     end
   end
+
+@runclass = Run.new
+@runclass
+
 end
