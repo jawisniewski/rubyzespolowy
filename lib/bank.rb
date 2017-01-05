@@ -9,30 +9,32 @@ class Bank
    @@accounts = []
    @@users = []
 
-  def add_account( name, balance, pin)
+  def add_account(currency, balance, pin)
     id = @@accounts.size
-    account = Account.new(id, name, balance, pin)
+    account = Account.new(id, currency, balance, pin)
     @@accounts.push(account)
   end
-    def add_user(name, surname)
-      id = @@users.size
-      user= Person.new(id,name,surname)
-      @@users.push(user)
-    end
-    def add_user_account(account_id, person_id)
-      @@users[person_id].add_account(@@accounts[account_id])
-    end
+
+  def add_user(name, surname)
+    id = @@users.size
+    user= Person.new(id,name,surname)
+    @@users.push(user)
+  end
+
+  def add_user_account(account_id, person_id)
+    @@users[person_id].add_account(@@accounts[account_id])
+  end
 
 
-  def add_money(id, name, addBalance, pin)
+  def add_money(id, currency, addBalance, pin)
     if(sprawdzPin(id, pin))
-      if name == @@accounts[id].name
+      if currency == @@accounts[id].currency
         addBalance = addBalance + @@accounts[id].balance
       else
         puts "Czy chcesz zrobic wymiany waluty wg stawki? (y,n)"
         wymiana = gets.chomp
         if wymiana=="y"
-          addBalance = addBalance*find_exchange_rate(name, @@accounts[id].name) + @@accounts[id].balance
+          addBalance = addBalance*find_exchange_rate(currency, @@accounts[id].currency) + @@accounts[id].balance
         else
           addBalance = @@accounts[id].balance
         end
@@ -40,13 +42,16 @@ class Bank
       @@accounts[id].balance = addBalance
     end
   end
+
   def find_exchange_rate(first, secound)
     puts "#{first} #{secound}"
   read_file.find { |x| x['first'] == first && x['secound'] == secound }['exchange_rate'].to_f
   end
+
   def read_file
-CSV.open(File.expand_path('../../exchange.csv', __FILE__),col_sep: ';',headers: true)
-end
+    CSV.open(File.expand_path('../../exchange.csv', __FILE__),col_sep: ';',headers: true)
+  end
+
   def withdraw(id, withdrawMoney, pin)
     if(sprawdzPin(id, pin))
       withdrawMoney = @@accounts[id].balance-withdrawMoney
@@ -58,6 +63,7 @@ end
       end
     end
   end
+
   def sprawdzPin(id,pin)
     if(pin.to_i == @@accounts[id].pin)
       print  "Pin poprawny"
@@ -69,12 +75,14 @@ end
       return false
     end
   end
-  def change_pin(id, pin,new_pin)
+
+  def change_pin(id,pin,new_pin)
       if(pin.to_i == @@accounts[id].pin)
         @@accounts[id].pin = new_pin
         puts "Nowy pin to #{@@accounts[id].pin}"
       end
   end
+
   def edit_user(id,name,surname)
 
         @@users[id].name = name
@@ -82,6 +90,7 @@ end
         puts "Nowy dane to #{@@users[id].name} #{@@users[id].surname}"
 
   end
+
   def show_all_account
     @@users.each do |i|
        print  i.to_s
@@ -111,6 +120,7 @@ end
         end
       end
     end
+
   def delete_account(id,pin)
     if sprawdzPin(id,pin)
       @@accounts.delete_at(id)
@@ -133,6 +143,7 @@ end
       end
     end
   end
+
   def show_user(id)
   print  @@users[id].to_s
     # user = @@users[id]
@@ -149,37 +160,24 @@ end
     print  @@accounts[id].to_s
     end
   end
-    # def showUserMoney(id, pin)
-    #   if(sprawdzPin(id, pin))
-    #
-    #     print @@users[id].name
-    #     print @@users[id].surname
-    #     print " Konta: "
-    #     @@users[id].accounts.each do |i|
-    #     print  i.name
-    #     print i.balance
-    #     print " | "
-    #     end
-    #     print "\n"
-    #   end
-    # end
-    def find_users_in_name(name)
-      value = "Uzytkownicy z kontem w walucie: " << name << " \n"
+
+    def find_users_in_currency(currency)
+      value = "Uzytkownicy z kontem w walucie: " << currency << " \n"
         @@users.each do |i|
           i.accounts.each do |j|
-          if j.name == name
+          if j.currency == currency
 
             value << "Nazwisko: #{i.surname} "
-            value << "imie: #{i.name}" << " \n"
+            value << "Imie: #{i.name}" << " \n"
           end
         end
       end
       value
     end
-    def find_name(name)
-      value = "Konta w walucie: " << name << " \n"
+    def find_currency(currency)
+      value = "Konta w walucie: " << currency << " \n"
         @@accounts.each do |i|
-          if i.name == name
+          if i.currency == currency
 
             value << "id: #{i.id} "
             value << "ilosc pieniedzy: #{i.balance}"
@@ -189,9 +187,6 @@ end
     end
   Bank.new.add_account("euro",1000,1234)
   Bank.new.add_account("pln",1000,1234)
-  # Bank.new.addMoney(1, "pln",3000, 1234)
-  #
-  # Bank.new.addMoney(1,3000,1237)
   Bank.new.withdraw(1,6000,1234)
   Bank.new.show_account(1,1234)
   Bank.new.add_user("Jan","Kowalski")

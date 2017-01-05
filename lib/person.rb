@@ -10,14 +10,14 @@
     end
 
    def to_s
-   person = "#{name} #{surname} \n"
-   person << "  Konta:\n  "
-   @accounts.each do |i|
-     person << " typ " << i.name
-     person << " Saldo " << i.balance.to_s
-     person << " \n"
- end
- person
+     person = "#{name} #{surname} \n"
+     person << "  Konta:\n  "
+     @accounts.each do |i|
+       person << " Typ " << i.currency
+       person << " Saldo " << i.balance.to_s
+       person << " \n"
+     end
+   person
    end
 
 def add_account(account)
@@ -25,7 +25,7 @@ def add_account(account)
 end
 
   def delete_account(account)
-    puts @name
+    puts @currency
     @accounts.delete_at(account)
     puts @accounts
     @accounts.each do |i|
@@ -36,11 +36,4 @@ end
   end
 
 
-
 end
-
-
-
-# dodaj klienta
-# wplac na konto
-# wyplac z konta
