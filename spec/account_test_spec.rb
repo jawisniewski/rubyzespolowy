@@ -39,5 +39,13 @@ RSpec.describe 'account.rb' do
     end
   end
 
+  # describe "to_s" do
+  #   it "should returns a correct balance" do
+  #     account = Account.new(100)
+  #     assert_equal 100, account.balance
+  #     assert account.to_s =~ /\100/
+  #   end
+  end
+
 
 end
