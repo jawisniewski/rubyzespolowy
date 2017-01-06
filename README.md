@@ -7,3 +7,7 @@
 
 [![Code Climate](https://codeclimate.com/github/jawisniewski/rubyzespolowy/badges/gpa.svg)](https://codeclimate.com/github/jawisniewski/rubyzespolowy)
 
+Twórcy:
+Szymon Sędek
+Aleksandra Tejszerska
+Jakub Wiśniewski
