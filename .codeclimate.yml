@@ -19,4 +19,5 @@ ratings:
   - "**.rb"
   - "**.go"
 exclude_paths:
-- spec/
+- spec/**/*
+- "**/vendor/**/*"
