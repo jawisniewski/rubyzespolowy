@@ -11,3 +11,7 @@ Twórcy:
 Szymon Sędek
 Aleksandra Tejszerska
 Jakub Wiśniewski
+
+Uruchomienie programu:
+
+Aby uruchomić program wystarczy przejść do katalogu bin i uruchomić program wpisując w konsoli ruby run.rb
