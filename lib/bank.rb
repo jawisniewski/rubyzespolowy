@@ -184,16 +184,16 @@ class Bank
           end
         end
       value
-    end
-  Bank.new.add_account("euro",1000,1234)
-  Bank.new.add_account("pln",1000,1234)
-  Bank.new.withdraw(1,6000,1234)
-  Bank.new.show_account(1,1234)
-  Bank.new.add_user("Jan","Kowalski")
+     end
+#   Bank.new.add_account("euro",1000,1234)
+#   Bank.new.add_account("pln",1000,1234)
+#   Bank.new.withdraw(1,6000,1234)
+#   Bank.new.show_account(1,1234)
+#   Bank.new.add_user("Jan","Kowalski")
 
-  Bank.new.add_user("Janusz","Kowalski")
-  Bank.new.add_user_account(1,1)
-  Bank.new.add_user_account(0,0)
+#   Bank.new.add_user("Janusz","Kowalski")
+#   Bank.new.add_user_account(1,1)
+#   Bank.new.add_user_account(0,0)
   # Bank.new.showAllAccount
 #   Bank.new.showUser(1)
 #   Bank.new.showUserMoney(1,1234)
