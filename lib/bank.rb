@@ -94,20 +94,6 @@ class Bank
   def show_all_account
     @@users.each do |i|
        print  i.to_s
-    #   print i.name
-    #   print " "
-    #   print i.surname
-    #   print " \n  Konta: "
-    #   i.accounts.each do |j|
-    #
-    #     print "\n    "
-    #      print "typ: "
-    #       print j.name
-    #       print " Saldo: "
-    #       print j.balance
-    #       print " "
-    # end
-    #   print "\n"
 
     end
 
@@ -146,17 +132,10 @@ class Bank
 
   def show_user(id)
   print  @@users[id].to_s
-    # user = @@users[id]
-    # print user.name
-    # print user.surname
-    # print "\n"
   end
 
   def show_account(id, pin)
      if(sprawdzPin(id,pin))
-      # print @@accounts[id].name
-      # print @@accounts[id].balance
-      # print "\n"
     print  @@accounts[id].to_s
     end
   end
@@ -185,19 +164,8 @@ class Bank
         end
       value
      end
-#   Bank.new.add_account("euro",1000,1234)
-#   Bank.new.add_account("pln",1000,1234)
-#   Bank.new.withdraw(1,6000,1234)
-#   Bank.new.show_account(1,1234)
-#   Bank.new.add_user("Jan","Kowalski")
 
-#   Bank.new.add_user("Janusz","Kowalski")
-#   Bank.new.add_user_account(1,1)
-#   Bank.new.add_user_account(0,0)
-  # Bank.new.showAllAccount
-#   Bank.new.showUser(1)
-#   Bank.new.showUserMoney(1,1234)
-#
-#
-# Bank.new.showUserMoney(0,1234)
+  Bank.new.add_account("euro",1000,1234)
+  Bank.new.add_account("pln",1000,1234)
+
 end
