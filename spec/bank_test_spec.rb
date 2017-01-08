@@ -1,8 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-
-require 'bank'
-require 'rspec'
+require_relative 'spec_helper'
 
 RSpec.describe 'bank.rb' do
 

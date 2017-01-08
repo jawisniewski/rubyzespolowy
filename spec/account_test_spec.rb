@@ -1,7 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-
-require 'account'
+require_relative 'spec_helper'
 
 RSpec.describe 'account.rb' do
 

@@ -1,7 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-
-require "menu"
+require_relative 'spec_helper'
 
 RSpec.describe 'menu.rb' do
 
