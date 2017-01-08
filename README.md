@@ -1,4 +1,4 @@
-# ruby3
+# Konto bankowe
 
 
 [![Build Status](https://travis-ci.org/jawisniewski/rubyzespolowy.svg?branch=master)](https://travis-ci.org/jawisniewski/rubyzespolowy)
