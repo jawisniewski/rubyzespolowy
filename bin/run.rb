@@ -131,7 +131,7 @@ class Run
       puts "Podaj pin\n"
       pin = gets.chomp
       pin= Integer(pin)
-      puts "Podaj walute\n"
+      puts "Podaj walute(eur,pln,gbr,usd)\n"
       currency = gets.chomp
       puts "Podaj kwote"
       balance = gets.chomp

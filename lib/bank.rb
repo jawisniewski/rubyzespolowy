@@ -92,7 +92,7 @@ class Bank
   end
 
   def show_all_account
-    @@users.each do |i|
+    @@accounts.each do |i|
        print  i.to_s
 
     end
@@ -165,7 +165,7 @@ class Bank
       value
      end
 
-  Bank.new.add_account("euro",1000,1234)
+  Bank.new.add_account("eur",1000,1234)
   Bank.new.add_account("pln",1000,1234)
 
 end
