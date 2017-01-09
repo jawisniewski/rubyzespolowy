@@ -3,12 +3,12 @@ require_relative 'spec_helper'
 RSpec.describe 'account.rb' do
 
   before :each do
-    @account1 = Account.new :id, :currency, :balance, :pin
+    @account = Account.new :id, :currency, :balance, :pin
   end
 
   describe "#new" do
     it "returns a account object" do
-      expect(@account1).to be_an_instance_of(Account)
+      expect(@account).to be_an_instance_of(Account)
     end
 
     it "method #new works?" do
@@ -18,25 +18,25 @@ RSpec.describe 'account.rb' do
 
   describe "#id" do
     it "returns a correct id" do
-      expect(@account1.id).to eq(:id)
+      expect(@account.id).to eq(:id)
     end
   end
 
   describe "#currency" do
     it "returns a correct currency" do
-      expect(@account1.currency).to eq(:currency)
+      expect(@account.currency).to eq(:currency)
     end
   end
 
   describe "#balance" do
     it "returns a correct balance" do
-      expect(@account1.balance).to eq(:balance)
+      expect(@account.balance).to eq(:balance)
     end
   end
 
   describe "#pin" do
     it "returns a correct pin" do
-      expect(@account1.pin).to eq(:pin)
+      expect(@account.pin).to eq(:pin)
     end
   end
 
