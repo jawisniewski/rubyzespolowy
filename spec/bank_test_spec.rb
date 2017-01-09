@@ -3,9 +3,10 @@ require_relative 'spec_helper'
 RSpec.describe 'bank.rb' do
 
   before :each do
-    @add_account = Bank.new.add_account("eur",1000,1234)
-    @add_user = Bank.new.add_user("Jan","Kowalski")
-    @read_file = Bank.new.read_file
+   Bank.new.add_account("eur",1000,1234)
+  Bank.new.add_account("eur",1000,1234)
+  Bank.new.add_user("Jan","Kowalski")
+   Bank.new.read_file
     @withdraw = Bank.new.withdraw(1,6000,1234)
 
   end
@@ -26,24 +27,18 @@ RSpec.describe 'bank.rb' do
 
     it 'method #add_money work?' do
       expect{
-        Bank.new.add_money(1, "pln", 100, 1234)
+        Bank.new.add_money(1, "eur", 100, 1234)
       }.not_to raise_error
-      expect{
-        Bank.new.add_money(0,"pln",100,1234).not_to raise_error
-      }
+
     end
     it 'method #add_money work?' do
       expect{
-        Bank.new.add_money(0,"pln",100,1234).not_to raise_error
+        Bank.new.add_money(1,"pln",100,1234).not_to raise_error
       }
     end
      it 'method #find_exchange_rate work?' do
        expect{Bank.new.find_exchange_rate("pln", "eur")}.not_to raise_error
      end
-
-  #   it 'method #read_file work?' do
-  #     expect(@read_file).not_to raise_error
-  #   end
 
     it 'method #withdraw work?' do
       expect{@withdraw}.not_to raise_error

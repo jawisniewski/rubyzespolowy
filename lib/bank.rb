@@ -164,8 +164,8 @@ class Bank
         end
       value
      end
-
-  Bank.new.add_account("eur",1000,1234)
-  Bank.new.add_account("pln",1000,1234)
+  # 
+  # Bank.new.add_account("eur",1000,1234)
+  # Bank.new.add_account("pln",1000,1234)
 
 end
